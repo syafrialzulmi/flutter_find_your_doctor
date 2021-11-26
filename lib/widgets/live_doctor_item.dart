@@ -6,6 +6,7 @@ class LiveDoctorItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Container(
+        margin: EdgeInsets.only(right: 15),
         // height: 170,
         width: 120,
         decoration: BoxDecoration(

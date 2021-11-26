@@ -132,10 +132,8 @@ class MyHome extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        // ListView(
-                        //   scrollDirection: Axis.horizontal,
-                        //   children: <Widget>[
                         Container(
+                          margin: EdgeInsets.only(top: 20),
                           height: 170,
                           child: ListView(
                             scrollDirection: Axis.horizontal,
@@ -147,16 +145,6 @@ class MyHome extends StatelessWidget {
                             ],
                           ),
                         )
-
-                        //   LiveDoctorItem(),
-                        // ],
-                        // )
-                        // ListView.builder(
-                        //   itemBuilder: (context, index) {
-                        //     return liveDoctorItem();
-                        //   },
-                        //   itemCount: 5,
-                        // )
                       ],
                     ),
                   ),

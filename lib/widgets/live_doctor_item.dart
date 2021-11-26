@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class LiveDoctorItem extends StatelessWidget {
+  final String imageUrl;
+
+  LiveDoctorItem(this.imageUrl);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -21,7 +24,8 @@ class LiveDoctorItem extends StatelessWidget {
               width: 120,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/image_live_doctor_1.jpg'),
+                    image: NetworkImage(imageUrl),
+                    // image: AssetImage('assets/images/image_live_doctor_1.jpg'),
                     fit: BoxFit.cover),
                 borderRadius: BorderRadius.all(
                   Radius.circular(15),

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../widgets/live_doctor_item.dart';
@@ -29,6 +31,9 @@ class MyHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final liveDoctor = List<String>.generate(
+        5, (index) => "https://picsum.photos/id/${index + 100}/200/300");
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Stack(
@@ -135,16 +140,29 @@ class MyHome extends StatelessWidget {
                         Container(
                           margin: EdgeInsets.only(top: 20),
                           height: 170,
-                          child: ListView(
+                          child:
+                              // ListView.builder(
+                              //   scrollDirection: Axis.horizontal,
+                              //   itemBuilder: (context, index) {
+                              //     return Card(
+                              //       child: Padding(
+                              //         padding: const EdgeInsets.all(15.0),
+                              //         child: Text(liveDoctor[index],
+                              //             style: TextStyle(fontSize: 30)),
+                              //       ),
+                              //     );
+                              //   },
+                              //   itemCount: liveDoctor.length,
+                              // ),
+
+                              ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            children: [
-                              LiveDoctorItem(),
-                              LiveDoctorItem(),
-                              LiveDoctorItem(),
-                              LiveDoctorItem(),
-                            ],
+                            itemBuilder: (context, index) {
+                              return LiveDoctorItem(liveDoctor[index]);
+                            },
+                            itemCount: liveDoctor.length,
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),

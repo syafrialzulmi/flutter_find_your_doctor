@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/label_header.dart';
 import '../widgets/popular_doctor_item.dart';
 
 class PopularDoctor extends StatelessWidget {
@@ -13,33 +14,7 @@ class PopularDoctor extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       child: Column(
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                'Popular Doctors',
-                style: TextStyle(
-                  fontFamily: 'Rubik',
-                  fontSize: 19,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'See all',
-                    style: TextStyle(
-                      fontFamily: 'Rubik',
-                      fontSize: 14,
-                      color: Color(0xff677294),
-                    ),
-                  ),
-                  Icon(Icons.keyboard_arrow_right, color: Color(0xff677294)),
-                ],
-              )
-            ],
-          ),
+          LabelHaeder('Popular Doctors'),
           Container(
               height: 250,
               margin: EdgeInsets.only(top: 30),

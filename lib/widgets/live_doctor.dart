@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/label_header.dart';
 import '../widgets/live_doctor_item.dart';
 
 class LiveDoctor extends StatelessWidget {
@@ -17,14 +18,7 @@ class LiveDoctor extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            'Live Doctors',
-            style: TextStyle(
-              fontFamily: 'Rubik',
-              fontSize: 19,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          LabelHaeder('Live Doctors'),
           Container(
             margin: EdgeInsets.only(top: 20),
             height: 170,

@@ -6,6 +6,7 @@ import '../widgets/profile_header.dart';
 import '../widgets/search_doctor.dart';
 import '../widgets/tab_button_item.dart';
 import '../widgets/popular_doctor.dart';
+import '../widgets/feature_doctor.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: MyHome(),
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.grey[100],
+        scaffoldBackgroundColor: Colors.grey[200],
       ),
     );
   }
@@ -38,6 +39,37 @@ class MyHome extends StatelessWidget {
         5, (index) => "https://picsum.photos/id/${index + 100}/200/300");
 
     return Scaffold(
+      extendBody: true,
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30.0),
+          topRight: Radius.circular(30.0),
+        ),
+        child: BottomNavigationBar(
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          unselectedItemColor: Colors.grey,
+          selectedItemColor: Colors.green,
+          items: [
+            BottomNavigationBarItem(
+              label: "Home",
+              icon: Icon(Icons.home),
+            ),
+            BottomNavigationBarItem(
+              label: "Home",
+              icon: Icon(Icons.favorite),
+            ),
+            BottomNavigationBarItem(
+              label: "Home",
+              icon: Icon(Icons.auto_stories),
+            ),
+            BottomNavigationBarItem(
+              label: "Home",
+              icon: Icon(Icons.comment),
+            ),
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
@@ -87,7 +119,11 @@ class MyHome extends StatelessWidget {
                       ],
                     ),
                   ),
-                  PopularDoctor()
+                  PopularDoctor(),
+                  FeatureDoctor(),
+                  SizedBox(
+                    height: 30,
+                  )
                 ],
               ),
             )

@@ -1,14 +1,11 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../widgets/live_doctor.dart';
 import '../widgets/profile_header.dart';
 import '../widgets/search_doctor.dart';
-import '../widgets/live_doctor_item.dart';
 import '../widgets/tab_button_item.dart';
+import '../widgets/popular_doctor.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: MyHome(),
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: Colors.grey[100],
       ),
     );
   }
@@ -90,151 +87,11 @@ class MyHome extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.only(top: 30),
-                    width: MediaQuery.of(context).size.width,
-                    child: Column(
-                      children: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              'Popular Doctors',
-                              style: TextStyle(
-                                fontFamily: 'Rubik',
-                                fontSize: 19,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'See all',
-                                  style: TextStyle(
-                                    fontFamily: 'Rubik',
-                                    fontSize: 14,
-                                    color: Color(0xff677294),
-                                  ),
-                                ),
-                                Icon(Icons.keyboard_arrow_right,
-                                    color: Color(0xff677294)),
-                              ],
-                            )
-                          ],
-                        ),
-                        Container(
-                            height: 250,
-                            margin: EdgeInsets.only(top: 30),
-                            child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              children: <Widget>[
-                                PopularDoctorItem(),
-                                PopularDoctorItem(),
-                                PopularDoctorItem(),
-                                PopularDoctorItem()
-                              ],
-                            )),
-                      ],
-                    ),
-                  )
+                  PopularDoctor()
                 ],
               ),
             )
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class PopularDoctorItem extends StatelessWidget {
-  const PopularDoctorItem({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // height: 250,
-      width: 190,
-      margin: EdgeInsets.only(right: 15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(20)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey,
-            spreadRadius: 1,
-            blurRadius: 2,
-          ),
-        ],
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: GridTile(
-          child: Image.network(
-            'https://picsum.photos/id/100/200/300',
-            fit: BoxFit.cover,
-          ),
-          footer: Container(
-            padding: EdgeInsets.only(
-              top: 10,
-            ),
-            color: Colors.white,
-            height: 80,
-            child: GridTileBar(
-              title: Column(
-                children: <Widget>[
-                  Text(
-                    'Dr. Fillerup Grab',
-                    style: TextStyle(
-                      fontFamily: 'Rubik',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 18,
-                      color: Color(0xff333333),
-                    ),
-                  ),
-                  Text(
-                    'Medicine Specialist',
-                    style: TextStyle(
-                      fontFamily: 'Rubik',
-                      fontWeight: FontWeight.w300,
-                      fontSize: 12,
-                      color: Color(0xff677294),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(top: 6),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.star,
-                          color: Colors.yellow,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.yellow,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.yellow,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Colors.yellow,
-                        ),
-                        Icon(
-                          Icons.star,
-                          color: Color(0xffE2E5EA),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
         ),
       ),
     );
